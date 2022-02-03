@@ -14,8 +14,9 @@ import {
   ListItem,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { FaInstagram, FaSteam, FaTwitter } from "react-icons/fa";
 
-function Yigit(props) {
+function Yigit() {
   return (
     <Container maxW={"7xl"}>
       <SimpleGrid
@@ -83,6 +84,40 @@ function Yigit(props) {
               </SimpleGrid>
             </Box>
           </Stack>
+          <Box
+            display={"flex"}
+            flexDirection="row"
+            alignItems={"center"}
+            justifyContent="center"
+            mb={6}
+          >
+            <Text
+              as={"a"}
+              href="https://www.instagram.com/yigitohka"
+              mr="6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram size={"30px"} className="icon" />
+            </Text>
+            <Text
+              as={"a"}
+              href="https://steamcommunity.com/id/Tohka7"
+              mr="6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaSteam size={"30px"} className="icon" />
+            </Text>
+            <Text
+              as={"a"}
+              href="https://twitter.com/liselinutella"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter size={"30px"} className="icon" />
+            </Text>
+          </Box>
           <Link to="/">
             <Button
               rounded={"none"}

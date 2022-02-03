@@ -9,10 +9,10 @@
 }
 *::-webkit-scrollbar {
   width: 0.45rem;
-  background-color: #171923;
+  background-color: #282c34;
 }
 *::-webkit-scrollbar-thumb {
-  background-color: #2D3748;
+  background-color: #171923;
   border-radius: 3px;
 }
 *::-webkit-scrollbar-track {
@@ -23,7 +23,7 @@
 }
 .icon:hover{
   transition: 0.3s all;
-  color: #6B46C1;
+  color: #0BC5EA;
 }
 
 div{

@@ -14,6 +14,7 @@ import {
   ListItem,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { FaInstagram, FaSteam, FaTwitter } from "react-icons/fa";
 
 function Mustafa() {
   return (
@@ -51,7 +52,7 @@ function Mustafa() {
             divider={<StackDivider borderColor={"gray.600"} />}
           >
             <VStack spacing={{ base: 4, sm: 6 }}>
-              <Text fontSize={"lg"}>Has animeci ve abi düşmanı.</Text>
+              <Text fontSize={"lg"}>Has animeci ve abi düşmanı. Büyüyünce camii olmak istiyor.</Text>
             </VStack>
             <Box>
               <Text
@@ -71,12 +72,47 @@ function Mustafa() {
                   <ListItem>Aynı anda 9 kızla konuşabilir</ListItem>
                 </List>
                 <List spacing={2}>
-                  <ListItem>Discord kullanıcısı</ListItem>
+                  <ListItem>Obez Discord kullanıcısı</ListItem>
                   <ListItem>Karanlıklarda yaşar</ListItem>
+                  <ListItem>İmanlı</ListItem>
                 </List>
               </SimpleGrid>
             </Box>
           </Stack>
+          <Box
+            display={"flex"}
+            flexDirection="row"
+            alignItems={"center"}
+            justifyContent="center"
+            mb={6}
+          >
+            <Text
+              as={"a"}
+              href="https://www.instagram.com/sainntt/"
+              mr="6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram size={"30px"} className="icon" />
+            </Text>
+            <Text
+              as={"a"}
+              href="https://steamcommunity.com/id/safa61"
+              mr="6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaSteam size={"30px"} className="icon" />
+            </Text>
+            <Text
+              as={"a"}
+              href="https://twitter.com/tahatja"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter size={"30px"} className="icon" />
+            </Text>
+          </Box>
           <Link to="/">
             <Button
               rounded={"none"}

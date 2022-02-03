@@ -14,6 +14,8 @@ import {
   ListItem,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { FaInstagram, FaSteam, FaTwitter } from "react-icons/fa";
+import { BiWorld } from "react-icons/bi";
 
 function Mustafa() {
   return (
@@ -84,6 +86,49 @@ function Mustafa() {
               </SimpleGrid>
             </Box>
           </Stack>
+          <Box
+            display={"flex"}
+            flexDirection="row"
+            alignItems={"center"}
+            justifyContent="center"
+            mb={6}
+          >
+            <Text
+              as={"a"}
+              href="http://www.erendemirtas.online/"
+              mr="6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <BiWorld size={"30px"} className="icon" />
+            </Text>
+            <Text
+              as={"a"}
+              href="https://www.instagram.com/erenhypnamed/"
+              mr="6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram size={"30px"} className="icon" />
+            </Text>
+            <Text
+              as={"a"}
+              href="https://steamcommunity.com/id/hypnamed"
+              mr="6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaSteam size={"30px"} className="icon" />
+            </Text>
+            <Text
+              as={"a"}
+              href="https://twitter.com/hypnamed"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter size={"30px"} className="icon" />
+            </Text>
+          </Box>
           <Link to="/">
             <Button
               rounded={"none"}

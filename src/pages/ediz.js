@@ -14,6 +14,8 @@ import {
   ListItem,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { FaInstagram, FaSteam, FaTwitter } from "react-icons/fa";
+import { BiWorld } from "react-icons/bi";
 
 function Ediz() {
   return (
@@ -48,16 +50,10 @@ function Ediz() {
           <Stack
             spacing={{ base: 4, sm: 6 }}
             direction={"column"}
-            divider={
-              <StackDivider
-                borderColor={"gray.600"}
-              />
-            }
+            divider={<StackDivider borderColor={"gray.600"} />}
           >
             <VStack spacing={{ base: 4, sm: 6 }}>
-              <Text fontSize={"lg"}>
-                Boş bilgilerin kralı
-              </Text>
+              <Text fontSize={"lg"}>Boş bilgilerin kralı</Text>
             </VStack>
             <Box>
               <Text
@@ -76,13 +72,56 @@ function Ediz() {
                   <ListItem>Her gün boş bilgi verebilir</ListItem>
                 </List>
                 <List spacing={2}>
-                  <ListItem>Efsane milan kadrosunu ezbere biliyor</ListItem>
+                  <ListItem>Bahtsız bedevi</ListItem>
                   <ListItem>İnsan (galiba)</ListItem>
                   <ListItem>Obama'nın soyismini biliyor</ListItem>
                 </List>
               </SimpleGrid>
             </Box>
           </Stack>
+          <Box
+            display={"flex"}
+            flexDirection="row"
+            alignItems={"center"}
+            justifyContent="center"
+            mb={6}
+          >
+            <Text
+              as={"a"}
+              href="https://edizkeskin.com/"
+              mr="6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <BiWorld size={"30px"} className="icon" />
+            </Text>
+            <Text
+              as={"a"}
+              href="https://www.instagram.com/sharpness_4/"
+              mr="6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram size={"30px"} className="icon" />
+            </Text>
+            <Text
+              as={"a"}
+              href="https://steamcommunity.com/id/sharpness4"
+              mr="6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaSteam size={"30px"} className="icon" />
+            </Text>
+            <Text
+              as={"a"}
+              href="https://twitter.com/sharpness_4"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter size={"30px"} className="icon" />
+            </Text>
+          </Box>
           <Link to="/">
             <Button
               rounded={"none"}
