@@ -1,0 +1,32 @@
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+}
+*:before,
+*:after {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*::-webkit-scrollbar {
+  width: 0.45rem;
+  background-color: #171923;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #2D3748;
+  border-radius: 3px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+.icon{
+  color: #fff;
+}
+.icon:hover{
+  transition: 0.3s all;
+  color: #6B46C1;
+}
+
+div{
+  color: #fff;
+}
+
