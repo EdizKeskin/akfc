@@ -8,6 +8,7 @@ import {
   useDisclosure,
   Button,
   Box,
+  Center
 } from "@chakra-ui/react";
 
 function Trap() {
@@ -35,9 +36,11 @@ function Trap() {
         finalFocusRef={btnRef}
       >
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent bgColor={"gray.800"}>
           <DrawerHeader>
+            <Center>
             Niye tıkladın kocaman sakın tıklama yazmışız :)
+            </Center>
           </DrawerHeader>
         </DrawerContent>
       </Drawer>
