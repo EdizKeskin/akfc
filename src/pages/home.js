@@ -2,6 +2,7 @@ import React from "react";
 import { Grid } from "@chakra-ui/react";
 import Card from "../components/card";
 import Navbar from "../components/navbar";
+import Trap from "../components/trap";
 
 function Home() {
   const user = [
@@ -67,6 +68,7 @@ function Home() {
           />
         ))}
       </Grid>
+      <Trap/>
     </header>
   );
 }

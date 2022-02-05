@@ -18,15 +18,14 @@
 *::-webkit-scrollbar-track {
   background: transparent;
 }
-.icon{
+.icon {
   color: #fff;
 }
-.icon:hover{
+.icon:hover {
   transition: 0.3s all;
-  color: #0BC5EA;
+  color: #0bc5ea;
 }
 
-div{
+div {
   color: #fff;
 }
-
