@@ -8,6 +8,8 @@ import {
   useDisclosure,
   Button,
   Box,
+  Image,
+  Center,
 } from "@chakra-ui/react";
 
 function Trap() {
@@ -35,10 +37,30 @@ function Trap() {
         finalFocusRef={btnRef}
       >
         <DrawerOverlay />
-        <DrawerContent bgColor={"gray.800"} display="flex" justifyContent="center" alignContent="center" textAlign="center">
+        <DrawerContent
+          bgColor={"gray.800"}
+          display="flex"
+          justifyContent="center"
+          alignContent="center"
+          textAlign="center"
+        >
           <DrawerHeader>
-            <Box>
-            <p>Tıklama yazmıştım :D</p>
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignContent="center"
+              textAlign="center"
+              flexDirection="column"
+            >
+              <p>Tıklama yazmıştım :D</p>
+              <Center>
+                <Image
+                  src="https://media.discordapp.net/attachments/716334154589143097/939660252725526588/freddy-fazbear-five-nights-at-freddys.gif"
+                  height="20%"
+                  width="20%"
+                  alt="Dans Eden Freddy"
+                />
+              </Center>
             </Box>
           </DrawerHeader>
         </DrawerContent>
