@@ -39,6 +39,7 @@ function Trap() {
           <DrawerHeader>
             <Box>
             <p>Tıklama yazmıştım :D</p>
+            <img src="https://media.discordapp.net/attachments/716334154589143097/939660252725526588/freddy-fazbear-five-nights-at-freddys.gif" height={100} className="foto-ortala"></img>
             </Box>
           </DrawerHeader>
         </DrawerContent>
