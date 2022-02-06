@@ -14,7 +14,7 @@ import {
   ListItem,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { FaInstagram, FaSteam, FaTwitter } from "react-icons/fa";
+import { FaInstagram, FaSteam, FaTwitter,FaGithub } from "react-icons/fa";
 import { BiWorld } from "react-icons/bi";
 
 function Ediz() {
@@ -94,6 +94,15 @@ function Ediz() {
               rel="noopener noreferrer"
             >
               <BiWorld size={"30px"} className="icon" />
+            </Text>
+            <Text
+              as={"a"}
+              href="https://github.com/EdizKeskin"
+              mr="6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub size={"30px"} className="icon" />
             </Text>
             <Text
               as={"a"}
