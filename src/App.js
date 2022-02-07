@@ -3,10 +3,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //PAGES
 import Home from "./pages/home";
-import Ediz from "./pages/ediz";
-import Ilke from "./pages/ilke";
-import Mustafa from "./pages/mustafa";
-import Yigit from "./pages/yigit";
+import Ediz from "./pages/team/ediz";
+import Ilke from "./pages/team/ilke";
+import Mustafa from "./pages/team/mustafa";
+import Yigit from "./pages/team/yigit";
+import Err404 from "./pages/err/err404";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
             </Route>
             <Route path="/yigit">
               <Yigit />
+            </Route>
+            <Route path="*">
+              <Err404 />
             </Route>
           </Switch>
         </div>

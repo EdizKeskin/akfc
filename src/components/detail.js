@@ -14,9 +14,10 @@ import {
   ListItem,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { FaInstagram, FaSteam, FaTwitter } from "react-icons/fa";
+import { FaInstagram, FaSteam, FaTwitter, FaGithub } from "react-icons/fa";
+import { BiWorld } from "react-icons/bi";
 
-function Yigit() {
+function Detail(props) {
   return (
     <Container maxW={"7xl"}>
       <SimpleGrid
@@ -27,8 +28,8 @@ function Yigit() {
         <Flex>
           <Image
             rounded={"md"}
-            alt={"product image"}
-            src="https://media.discordapp.net/attachments/852594392833327146/938770781436014622/Anime_iconsby_Rasla_.jpeg?width=559&height=559"
+            alt={"user image"}
+            src={props.image}
             fit={"cover"}
             align={"center"}
             w={"100%"}
@@ -42,45 +43,31 @@ function Yigit() {
               fontWeight={600}
               fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}
             >
-              Yiğithan Uğur
+              {props.name}
             </Heading>
           </Box>
 
           <Stack
             spacing={{ base: 4, sm: 6 }}
             direction={"column"}
-            divider={
-              <StackDivider
-                borderColor={"gray.600"}
-              />
-            }
+            divider={<StackDivider borderColor={"gray.600"} />}
           >
             <VStack spacing={{ base: 4, sm: 6 }}>
-              <Text fontSize={"lg"}>
-              Tarihin en iyi oyuncusu. En sevdiği oyun devour.
-              </Text>
+              <Text fontSize={"lg"}>{props.desc}</Text>
             </VStack>
             <Box>
               <Text
                 fontSize={{ base: "16px", lg: "18px" }}
                 color={"yellow.300"}
                 fontWeight={"500"}
-                textTransform={"uppercase"}
                 mb={"4"}
               >
                 ÖZELLİKLER
               </Text>
 
               <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-                <List spacing={2}>
-                  <ListItem>Pro gamer</ListItem>
-                  <ListItem>Adam</ListItem>{" "}
-                  <ListItem>Oyunda götünüzü taşır</ListItem>
-                </List>
-                <List spacing={2}>
-                  <ListItem>Paslı kelebeği var</ListItem>
-                  <ListItem>LoL elmas</ListItem>
-                </List>
+                <List spacing={2}>{props.listL}</List>
+                <List spacing={2}>{props.listR}</List>
               </SimpleGrid>
             </Box>
           </Stack>
@@ -91,32 +78,60 @@ function Yigit() {
             justifyContent="center"
             mb={6}
           >
-            <Text
-              as={"a"}
-              href="https://www.instagram.com/yigitohka"
-              mr="6"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram size={"30px"} className="icon" />
-            </Text>
-            <Text
-              as={"a"}
-              href="https://steamcommunity.com/id/Tohka7"
-              mr="6"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaSteam size={"30px"} className="icon" />
-            </Text>
-            <Text
-              as={"a"}
-              href="https://twitter.com/liselinutella"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaTwitter size={"30px"} className="icon" />
-            </Text>
+            {props.website && (
+              <Text
+                as={"a"}
+                href={props.website}
+                mr="6"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <BiWorld size={"30px"} className="icon" />
+              </Text>
+            )}
+            {props.github && (
+              <Text
+                as={"a"}
+                href={props.github}
+                mr="6"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub size={"30px"} className="icon" />
+              </Text>
+            )}
+            {props.instagram && (
+              <Text
+                as={"a"}
+                href={props.instagram}
+                mr="6"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaInstagram size={"30px"} className="icon" />
+              </Text>
+            )}
+            {props.steam && (
+              <Text
+                as={"a"}
+                href={props.steam}
+                mr="6"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaSteam size={"30px"} className="icon" />
+              </Text>
+            )}
+            {props.twitter && (
+              <Text
+                as={"a"}
+                href={props.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaTwitter size={"30px"} className="icon" />
+              </Text>
+            )}
           </Box>
           <Link to="/">
             <Button
@@ -142,4 +157,4 @@ function Yigit() {
   );
 }
 
-export default Yigit;
+export default Detail;
