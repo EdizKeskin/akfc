@@ -11,7 +11,6 @@ import {
   SimpleGrid,
   StackDivider,
   List,
-  ListItem,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { FaInstagram, FaSteam, FaTwitter, FaGithub } from "react-icons/fa";
