@@ -30,8 +30,9 @@ function Navbar() {
       >
         AKFC
       </Text>
-      <Text fontSize={"lg"} fontWeight={"medium"} color={textColor}>
-        Biz anime kızlarını seven 4 arkadaşız
+      <Text fontSize={"lg"} fontWeight={"medium"} color={textColor} textAlign="center">
+        Biz anime kızlarını seven 4 arkadaşız. Beraber oyun oynayıp boş
+        espirilere sabaha kadar güleriz
       </Text>
       <IconButton
         size="sm"
@@ -48,7 +49,7 @@ function Navbar() {
         variant="link"
         onClick={toggleColorMode}
         mt="3"
-        fontSize={"3xl"}
+        fontSize={"2xl"}
         display={colorMode === "light" ? "box" : "none"}
       >
         Çabuk geri siyah temaya dön!!
