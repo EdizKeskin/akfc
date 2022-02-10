@@ -8,10 +8,12 @@ import Ilke from "./pages/team/ilke";
 import Mustafa from "./pages/team/mustafa";
 import Yigit from "./pages/team/yigit";
 import Err404 from "./pages/err/err404";
+import { Box,useColorModeValue } from "@chakra-ui/react";
 
 function App() {
+  const bg = useColorModeValue('white', '#282c34')
   return (
-    <header className="App-header">
+    <Box bg={bg} minH="100vh">
       <Router>
         <div>
           <Switch>
@@ -36,7 +38,7 @@ function App() {
           </Switch>
         </div>
       </Router>
-    </header>
+    </Box>
   );
 }
 

@@ -1,8 +1,18 @@
-import { Text, Box, Button } from "@chakra-ui/react";
+import {
+  Text,
+  Box,
+  Button,
+  useColorMode,
+  useColorModeValue,
+  IconButton,
+} from "@chakra-ui/react";
 import React from "react";
 import { FaDiscord } from "react-icons/fa";
+import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 
 function Navbar() {
+  const { colorMode, toggleColorMode } = useColorMode();
+  const textColor = useColorModeValue("black", "white");
   return (
     <Box
       justifyContent="center"
@@ -16,12 +26,33 @@ function Navbar() {
         fontSize={"4xl"}
         fontWeight={"extrabold"}
         letterSpacing={"10px"}
+        color={textColor}
       >
         AKFC
       </Text>
-      <Text fontSize={"lg"} fontWeight={"medium"}>
-        Biz anime kızlarına tapan 4 arkadaşız
+      <Text fontSize={"lg"} fontWeight={"medium"} color={textColor}>
+        Biz anime kızlarını seven 4 arkadaşız
       </Text>
+      <IconButton
+        size="sm"
+        onClick={toggleColorMode}
+        mt="3"
+        icon={colorMode === "light" ? <BsFillMoonFill /> : <BsFillSunFill />}
+        position={"absolute"}
+        top={"5"}
+        right={"5"}
+      />
+
+      <Button
+        color="Black"
+        variant="link"
+        onClick={toggleColorMode}
+        mt="3"
+        fontSize={"3xl"}
+        display={colorMode === "light" ? "box" : "none"}
+      >
+        Çabuk geri siyah temaya dön!!
+      </Button>
 
       <Button
         variant="link"

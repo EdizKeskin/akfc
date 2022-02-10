@@ -10,10 +10,13 @@ import {
   Box,
   Image,
   Center,
+  useColorModeValue
 } from "@chakra-ui/react";
 
 function Trap() {
   const { isOpen, onOpen } = useDisclosure();
+  const bg = useColorModeValue('white.100', 'gray.900')
+  const textColor = useColorModeValue("black", "white");
   const btnRef = React.useRef();
 
   return (
@@ -38,7 +41,7 @@ function Trap() {
       >
         <DrawerOverlay />
         <DrawerContent
-          bgColor={"gray.800"}
+          bgColor={bg}
           display="flex"
           justifyContent="center"
           alignContent="center"
@@ -51,6 +54,7 @@ function Trap() {
               alignContent="center"
               textAlign="center"
               flexDirection="column"
+              color={textColor}
             >
               <p>Tıklama yazmıştım :D</p>
               <Center>

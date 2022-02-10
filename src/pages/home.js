@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@chakra-ui/react";
+import { Box, Grid } from "@chakra-ui/react";
 import Card from "../components/card";
 import Navbar from "../components/navbar";
 import Trap from "../components/trap";
@@ -7,7 +7,7 @@ import User from "./users";
 
 function Home() {
   return (
-    <header className="App-header">
+    <Box minh="100vh">
       <Navbar />
       <Grid
         templateColumns={{
@@ -19,20 +19,11 @@ function Home() {
         mt={"16"}
       >
         {User.map((user, index) => (
-          <Card
-            key={index}
-            name={user.name}
-            tag={user.tag}
-            link={user.link}
-            insta={user.sm.instagram}
-            steam={user.sm.steam}
-            twitter={user.sm.twitter}
-            avatar={user.avatar}
-          />
+          <Card key={index} item={user} />
         ))}
       </Grid>
-      <Trap/>
-    </header>
+      <Trap />
+    </Box>
   );
 }
 

@@ -5,17 +5,23 @@ import {
   Center,
   Text,
   Button,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { FaInstagram, FaSteam, FaTwitter } from "react-icons/fa";
 
-function Card(props) {
+function Card({item}) {
+  const bg = useColorModeValue('white.100', 'gray.900')
+  const textColor = useColorModeValue('black', 'white')
+  const border = useColorModeValue('1px solid #CBD5E0', 'none')
+
   return (
     <Center py={6}>
       <Box
         w={"full"}
-        bg={"gray.900"}
+        bg={bg}
         boxShadow={"2xl"}
+        border={border}
         rounded={"lg"}
         p={6}
         textAlign={"center"}
@@ -23,17 +29,17 @@ function Card(props) {
       >
         <Avatar
           size={"xl"}
-          src={props.avatar}
+          src={item.avatar}
           alt={"Avatar Alt"}
           mb={4}
           pos={"relative"}                                            
           border={"1px solid #eaeaea"}
         />
-        <Heading fontSize={"2xl"} fontFamily={"body"} color="white">
-          {props.name}
+        <Heading fontSize={"2xl"} fontFamily={"body"} color={textColor}>
+          {item.name}
         </Heading>
         <Text fontWeight={600} fontSize={"xl"} color={"gray.500"} mb={4}>
-          {props.tag}
+          {item.tag}
         </Text>
         <Box
           display={"flex"}
@@ -44,33 +50,36 @@ function Card(props) {
         >
           <Text
             as={"a"}
-            href={props.insta}
+            href={item.sm.instagram}
             mr="6"
             target="_blank"
             rel="noopener noreferrer"
+            color={textColor}
           >
-            <FaInstagram size={"30px"} className="icon" />
+            <FaInstagram size={"30px"} />
           </Text>
           <Text
             as={"a"}
-            href={props.steam}
+            href={item.sm.steam}
             mr="6"
             target="_blank"
             rel="noopener noreferrer"
+            color={textColor}
           >
-            <FaSteam size={"30px"} className="icon" />
+            <FaSteam size={"30px"} />
           </Text>
           <Text
             as={"a"}
-            href={props.twitter}
+            href={item.sm.twitter}
             target="_blank"
             rel="noopener noreferrer"
+            color={textColor}
           >
-            <FaTwitter size={"30px"} className="icon" />
+            <FaTwitter size={"30px"}  />
           </Text>
         </Box>
 
-        <Link to={props.link}>
+        <Link to={item.link}>
           <Button
             flex={1}
             colorScheme={"teal"}

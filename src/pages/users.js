@@ -33,6 +33,7 @@ const User = [
     link: "/ilke",
     avatar:
       "https://cdn.discordapp.com/attachments/877600152083374122/938766237071183912/LuffyLaugh.png",
+    desc: "En büyük hayali korsanlar kralı olmak",
     detail: [
       {
         itemL: "Rocket Lig #1",
@@ -59,6 +60,7 @@ const User = [
     name: "Taha Aslan",
     tag: "@Sain7",
     link: "/taha",
+    desc: "Abi düşmanı",
     avatar: "https://c.tenor.com/kX00C2557JgAAAAC/bleach.gif",
     detail: [
       {
@@ -86,6 +88,7 @@ const User = [
     link: "/yigit",
     avatar:
       "https://media.discordapp.net/attachments/852594392833327146/938770781436014622/Anime_iconsby_Rasla_.jpeg?width=559&height=559",
+    desc: "Pro gamer",
     detail: [
       {
         itemL: "Pro gamer",

@@ -11,12 +11,18 @@ import {
   SimpleGrid,
   StackDivider,
   List,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { FaInstagram, FaSteam, FaTwitter, FaGithub } from "react-icons/fa";
 import { BiWorld } from "react-icons/bi";
 
 function Detail(props) {
+  const textColor = useColorModeValue("black", "white");
+  const titleColor = useColorModeValue("yellow.500", "yellow.300");
+  const btnBg = useColorModeValue('gray.900', 'gray.50');
+  const btnColor = useColorModeValue('white', 'gray.900');
+
   return (
     <Container maxW={"7xl"}>
       <SimpleGrid
@@ -41,6 +47,7 @@ function Detail(props) {
               lineHeight={1.1}
               fontWeight={600}
               fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}
+              color={textColor}
             >
               {props.name}
             </Heading>
@@ -52,12 +59,14 @@ function Detail(props) {
             divider={<StackDivider borderColor={"gray.600"} />}
           >
             <VStack spacing={{ base: 4, sm: 6 }}>
-              <Text fontSize={"lg"}>{props.desc}</Text>
+              <Text fontSize={"lg"} color={textColor}>
+                {props.desc}
+              </Text>
             </VStack>
             <Box>
               <Text
                 fontSize={{ base: "16px", lg: "18px" }}
-                color={"yellow.300"}
+                color={titleColor}
                 fontWeight={"500"}
                 mb={"4"}
               >
@@ -65,8 +74,12 @@ function Detail(props) {
               </Text>
 
               <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-                <List spacing={2}>{props.listL}</List>
-                <List spacing={2}>{props.listR}</List>
+                <List spacing={2} color={textColor}>
+                  {props.listL}
+                </List>
+                <List spacing={2} color={textColor}>
+                  {props.listR}
+                </List>
               </SimpleGrid>
             </Box>
           </Stack>
@@ -84,8 +97,9 @@ function Detail(props) {
                 mr="6"
                 target="_blank"
                 rel="noopener noreferrer"
+                color={textColor}
               >
-                <BiWorld size={"30px"} className="icon" />
+                <BiWorld size={"30px"} />
               </Text>
             )}
             {props.github && (
@@ -95,8 +109,9 @@ function Detail(props) {
                 mr="6"
                 target="_blank"
                 rel="noopener noreferrer"
+                color={textColor}
               >
-                <FaGithub size={"30px"} className="icon" />
+                <FaGithub size={"30px"} />
               </Text>
             )}
             {props.instagram && (
@@ -106,8 +121,9 @@ function Detail(props) {
                 mr="6"
                 target="_blank"
                 rel="noopener noreferrer"
+                color={textColor}
               >
-                <FaInstagram size={"30px"} className="icon" />
+                <FaInstagram size={"30px"} />
               </Text>
             )}
             {props.steam && (
@@ -117,8 +133,9 @@ function Detail(props) {
                 mr="6"
                 target="_blank"
                 rel="noopener noreferrer"
+                color={textColor}
               >
-                <FaSteam size={"30px"} className="icon" />
+                <FaSteam size={"30px"} />
               </Text>
             )}
             {props.twitter && (
@@ -127,8 +144,9 @@ function Detail(props) {
                 href={props.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
+                color={textColor}
               >
-                <FaTwitter size={"30px"} className="icon" />
+                <FaTwitter size={"30px"} />
               </Text>
             )}
           </Box>
@@ -139,8 +157,8 @@ function Detail(props) {
               mt={8}
               size={"lg"}
               py={"7"}
-              bg={"gray.50"}
-              color={"gray.900"}
+              bg={btnBg}
+              color={btnColor}
               textTransform={"uppercase"}
               _hover={{
                 transform: "translateY(2px)",
