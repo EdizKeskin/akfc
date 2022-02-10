@@ -98,6 +98,8 @@ function Detail(props) {
                 target="_blank"
                 rel="noopener noreferrer"
                 color={textColor}
+                _hover={{ color: "yellow.300" }}
+                transition="all 0.3s"
               >
                 <BiWorld size={"30px"} />
               </Text>
@@ -110,6 +112,8 @@ function Detail(props) {
                 target="_blank"
                 rel="noopener noreferrer"
                 color={textColor}
+                _hover={{ color: "yellow.300" }}
+                transition="all 0.3s"
               >
                 <FaGithub size={"30px"} />
               </Text>
@@ -122,6 +126,8 @@ function Detail(props) {
                 target="_blank"
                 rel="noopener noreferrer"
                 color={textColor}
+                _hover={{ color: "yellow.300" }}
+                transition="all 0.3s"
               >
                 <FaInstagram size={"30px"} />
               </Text>
@@ -134,6 +140,8 @@ function Detail(props) {
                 target="_blank"
                 rel="noopener noreferrer"
                 color={textColor}
+                _hover={{ color: "yellow.300" }}
+                transition="all 0.3s"
               >
                 <FaSteam size={"30px"} />
               </Text>
@@ -145,6 +153,8 @@ function Detail(props) {
                 target="_blank"
                 rel="noopener noreferrer"
                 color={textColor}
+                _hover={{ color: "yellow.300" }}
+                transition="all 0.3s"
               >
                 <FaTwitter size={"30px"} />
               </Text>

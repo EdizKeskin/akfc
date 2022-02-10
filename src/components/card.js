@@ -10,10 +10,10 @@ import {
 import { Link } from "react-router-dom";
 import { FaInstagram, FaSteam, FaTwitter } from "react-icons/fa";
 
-function Card({item}) {
-  const bg = useColorModeValue('white.100', 'gray.900')
-  const textColor = useColorModeValue('black', 'white')
-  const border = useColorModeValue('1px solid #CBD5E0', 'none')
+function Card({ item }) {
+  const bg = useColorModeValue("white.100", "gray.900");
+  const textColor = useColorModeValue("black", "white");
+  const border = useColorModeValue("1px solid #CBD5E0", "none");
 
   return (
     <Center py={6}>
@@ -32,7 +32,7 @@ function Card({item}) {
           src={item.avatar}
           alt={"Avatar Alt"}
           mb={4}
-          pos={"relative"}                                            
+          pos={"relative"}
           border={"1px solid #eaeaea"}
         />
         <Heading fontSize={"2xl"} fontFamily={"body"} color={textColor}>
@@ -55,6 +55,8 @@ function Card({item}) {
             target="_blank"
             rel="noopener noreferrer"
             color={textColor}
+            _hover={{ color: "teal.200" }}
+            transition="all 0.3s"
           >
             <FaInstagram size={"30px"} />
           </Text>
@@ -65,6 +67,8 @@ function Card({item}) {
             target="_blank"
             rel="noopener noreferrer"
             color={textColor}
+            _hover={{ color: "teal.200" }}
+            transition="all 0.3s"
           >
             <FaSteam size={"30px"} />
           </Text>
@@ -74,8 +78,10 @@ function Card({item}) {
             target="_blank"
             rel="noopener noreferrer"
             color={textColor}
+            _hover={{ color: "teal.200" }}
+            transition="all 0.3s"
           >
-            <FaTwitter size={"30px"}  />
+            <FaTwitter size={"30px"} />
           </Text>
         </Box>
 
