@@ -8,7 +8,9 @@ import User from "./users";
 function Home() {
   return (
     <Box minh="100vh">
-      <Header />
+      <div data-aos="fade-up">
+        <Header />
+      </div>
       <Grid
         templateColumns={{
           sm: "repeat(1, 1fr)",
@@ -19,9 +21,12 @@ function Home() {
         mt={"16"}
       >
         {User.map((user, index) => (
-          <Card key={index} item={user} />
+          <div key={index} data-aos="zoom-in-up">
+            <Card item={user} />
+          </div>
         ))}
       </Grid>
+
       <Trap />
     </Box>
   );

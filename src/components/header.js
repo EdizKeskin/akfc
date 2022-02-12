@@ -46,9 +46,9 @@ function Header() {
         >
           AKFC
         </Text>
-
-        <FormattedMessage id="desc" />
-
+        <Box textAlign={"center"}>
+          <FormattedMessage id="desc" />
+        </Box>
         <Button
           color="Black"
           variant="link"
@@ -59,7 +59,6 @@ function Header() {
         >
           <FormattedMessage id="err" />
         </Button>
-
         <Button
           variant="link"
           fontSize={"md"}

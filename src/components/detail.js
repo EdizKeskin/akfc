@@ -28,11 +28,11 @@ function Detail(props) {
 
   const messages = {
     "tr-TR": {
-      title:"DETAYLAR",
+      title: "DETAYLAR",
       btn: "Ana Sayfa",
     },
-    "en-US": { 
-      title:"DETAILS",     
+    "en-US": {
+      title: "DETAILS",
       btn: "Home",
     },
   };
@@ -45,7 +45,7 @@ function Detail(props) {
           spacing={{ base: 8, md: 10 }}
           py={{ base: 18, md: 24 }}
         >
-          <Flex>
+          <Flex data-aos="fade-down">
             <Image
               rounded={"md"}
               alt={"user image"}
@@ -56,7 +56,7 @@ function Detail(props) {
               h={{ base: "100%", sm: "400px", lg: "500px" }}
             />
           </Flex>
-          <Stack spacing={{ base: 6, md: 10 }}>
+          <Stack spacing={{ base: 6, md: 10 }} data-aos="fade-up">
             <Box as={"header"}>
               <Heading
                 lineHeight={1.1}
