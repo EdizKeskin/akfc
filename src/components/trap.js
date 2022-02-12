@@ -10,17 +10,33 @@ import {
   Box,
   Image,
   Center,
-  useColorModeValue
+  useColorModeValue,
 } from "@chakra-ui/react";
+
+import { useLang } from "../context/langContext";
+import { IntlProvider, FormattedMessage } from "react-intl";
 
 function Trap() {
   const { isOpen, onOpen } = useDisclosure();
-  const bg = useColorModeValue('white.100', 'gray.900')
+  const bg = useColorModeValue("white.100", "gray.900");
   const textColor = useColorModeValue("black", "white");
   const btnRef = React.useRef();
 
+  const { lang } = useLang();
+
+  const messages = {
+    "tr-TR": {
+      btn: "Sakın tıklama",
+      err:"Tıklama yazmıştım :D"
+    },
+    "en-US": {
+      btn: "Dont touch",
+      err:"Told u :D"
+    },
+  };
+
   return (
-    <>
+    <IntlProvider messages={messages[lang]} locale={lang}>
       <Box position={"absolute"} bottom={"0"} right={"0"}>
         <Button
           ref={btnRef}
@@ -30,7 +46,7 @@ function Trap() {
           color={"gray.500"}
           size={"sm"}
         >
-          Sakın Tıklama
+          <FormattedMessage id="btn" />
         </Button>
       </Box>
       <Drawer
@@ -56,7 +72,9 @@ function Trap() {
               flexDirection="column"
               color={textColor}
             >
-              <p>Tıklama yazmıştım :D</p>
+              <p>
+                <FormattedMessage id="err" />
+              </p>
               <Center>
                 <Image
                   src="https://media.discordapp.net/attachments/716334154589143097/939660252725526588/freddy-fazbear-five-nights-at-freddys.gif"
@@ -69,7 +87,7 @@ function Trap() {
           </DrawerHeader>
         </DrawerContent>
       </Drawer>
-    </>
+    </IntlProvider>
   );
 }
 

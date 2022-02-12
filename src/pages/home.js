@@ -1,14 +1,14 @@
 import React from "react";
 import { Box, Grid } from "@chakra-ui/react";
 import Card from "../components/card";
-import Navbar from "../components/navbar";
+import Header from "../components/header";
 import Trap from "../components/trap";
 import User from "./users";
 
 function Home() {
   return (
     <Box minh="100vh">
-      <Navbar />
+      <Header />
       <Grid
         templateColumns={{
           sm: "repeat(1, 1fr)",

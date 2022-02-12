@@ -4,13 +4,17 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+import { LangProvider } from "./context/langContext";
+
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "./theme";
 
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
-      <App />
+      <LangProvider>
+        <App />
+      </LangProvider>
     </ChakraProvider>
   </React.StrictMode>,
   document.getElementById("root")

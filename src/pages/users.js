@@ -5,18 +5,31 @@ const User = [
     link: "/ediz",
     avatar: "https://media2.giphy.com/media/STx6D0t05pZEidimsU/giphy.gif",
     desc: "Boş bilgilerin kralı",
+    desc_en: "Useless information king",
     detail: [
       {
         itemL: "Warframe obezi",
         itemR: "Her gün boş bilgi verebilir",
       },
       {
-        itemL: "ZİH̨̢̀İ͚̹Ņ̰͟͝SE͎͔̪L ̅̏̃҉SO̅RU̵̴N",
+        itemL: "Animeci katili",
         itemR: "Bahtsız bedevi",
       },
       {
-        itemL: "Her gün boş bilgi verebilir",
-        itemR: "Obama'nın soyismini biliyor",
+        itemL: "Obama'nın soyismini biliyor",
+      },
+    ],
+    detail_en: [
+      {
+        itemL: "Lifeless Warframe player",
+        itemR: "Can tell useless information everyday",
+      },
+      {
+        itemL: "Hunter of the anime fans",
+        itemR: "Unlucky bedouin",
+      },
+      {
+        itemL: "Knows Obama's last name",
       },
     ],
     sm: {
@@ -34,10 +47,11 @@ const User = [
     avatar:
       "https://cdn.discordapp.com/attachments/877600152083374122/938766237071183912/LuffyLaugh.png",
     desc: "En büyük hayali korsanlar kralı olmak",
+    desc_en:"His biggest dream is to be the king of pirates",
     detail: [
       {
         itemL: "Rocket Lig #1",
-        itemR: "7 yıllık lol prosu",
+        itemR: "7 yıllık lol prosu (Bronz 1)",
       },
       {
         itemL: "Anime kızlı yastığı var",
@@ -46,6 +60,20 @@ const User = [
       {
         itemL: "Has animeci",
         itemR: "Tiktok yıldızı",
+      },
+    ],
+    detail_en: [
+      {
+        itemL: "Hard grind lol player for 7 years(Bronze1)",
+        itemR: "Rocket League #1",    
+      },
+      {
+        itemL: "he has a animegirl bodypillow",
+        itemR: "PC Hocası Facebook group addict",
+      },
+      {
+        itemL: "Anime addict",
+        itemR: "Tiktok star",
       },
     ],
     sm: {
@@ -61,6 +89,7 @@ const User = [
     tag: "@Sain7",
     link: "/taha",
     desc: "Abi düşmanı",
+    desc_en: "Enemy of brother",
     avatar: "https://c.tenor.com/kX00C2557JgAAAAC/bleach.gif",
     detail: [
       {
@@ -76,6 +105,20 @@ const User = [
         itemR: "İmanlı",
       },
     ],
+    detail_en: [
+      {
+        itemL: "He knows name of the every anime girl",
+        itemR: "Lifeless discord mod",
+      },
+      {
+        itemL: "Snapchat pervert",
+        itemR: "Lives in the darkness",
+      },
+      {
+        itemL: "He can speak with 9 girls at the same time",
+        itemR: "Virgin",
+      },
+    ],
     sm: {
       instagram: "https://www.instagram.com/sainntt/",
       steam: "https://steamcommunity.com/id/safa61",
@@ -88,7 +131,8 @@ const User = [
     link: "/yigit",
     avatar:
       "https://media.discordapp.net/attachments/852594392833327146/938770781436014622/Anime_iconsby_Rasla_.jpeg?width=559&height=559",
-    desc: "Pro gamer",
+    desc: "1 numaralı anime düşmanı",
+    desc_en: "1st anime enemy",
     detail: [
       {
         itemL: "Pro gamer",
@@ -96,10 +140,23 @@ const User = [
       },
       {
         itemL: "Adam",
-        itemR: "LoL elmas",
+        itemR: "LoL elmas 1",
       },
       {
         itemL: "Oyunda götünüzü taşır",
+      },
+    ],
+    detail_en: [
+      {
+        itemL: "Pro gamer",
+        itemR: "He has got rusty butterfly knife",
+      },
+      {
+        itemL: "MAN",
+        itemR: "Lol diamond 1",
+      },
+      {
+        itemL: "He can carry your ass in any game",
       },
     ],
     sm: {
