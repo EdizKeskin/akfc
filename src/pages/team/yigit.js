@@ -30,8 +30,12 @@ function Yigit() {
               <ListItem key={index}>{item.itemR}</ListItem>
             ))
       }
-      website={User[3].sm.website}
-      github={User[3].sm.github}
+      animeR={User[3].anime_girls.map((item, index) => (
+        <ListItem key={index}>{item.itemR}</ListItem>
+      ))}
+      animeL={User[3].anime_girls.map((item, index) => (
+        <ListItem key={index}>{item.itemL}</ListItem>
+      ))}
       instagram={User[3].sm.instagram}
       steam={User[3].sm.steam}
       twitter={User[3].sm.twitter}

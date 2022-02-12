@@ -29,8 +29,12 @@ function Mustafa() {
               <ListItem key={index}>{item.itemR}</ListItem>
             ))
       }
-      website={User[2].sm.website}
-      github={User[2].sm.github}
+      animeR={User[2].anime_girls.map((item, index) => (
+        <ListItem key={index}>{item.itemR}</ListItem>
+      ))}
+      animeL={User[2].anime_girls.map((item, index) => (
+        <ListItem key={index}>{item.itemL}</ListItem>
+      ))}
       instagram={User[2].sm.instagram}
       steam={User[2].sm.steam}
       twitter={User[2].sm.twitter}

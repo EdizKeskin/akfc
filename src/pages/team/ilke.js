@@ -30,6 +30,12 @@ function Ilke() {
               <ListItem key={index}>{item.itemR}</ListItem>
             ))
       }
+      animeR={User[1].anime_girls.map((item, index) => (
+        <ListItem key={index}>{item.itemR}</ListItem>
+      ))}
+      animeL={User[1].anime_girls.map((item, index) => (
+        <ListItem key={index}>{item.itemL}</ListItem>
+      ))}
       website={User[1].sm.website}
       github={User[1].sm.github}
       instagram={User[1].sm.instagram}

@@ -32,6 +32,20 @@ const User = [
         itemL: "Knows Obama's last name",
       },
     ],
+    anime_girls: [
+      {
+        itemL: "Hinata Hyūga",
+        itemR: "Rin Tohsaka",
+      },
+      {
+        itemL: "Saber (fate)",
+        itemR: "Kurisu Makise",
+      },
+      {
+        itemL: "Zero Two",
+        itemR: "Kaguya Shinomiya",
+      },
+    ],
     sm: {
       website: "https://www.edizkeskin.com",
       github: "https://github.com/EdizKeskin",
@@ -68,12 +82,26 @@ const User = [
         itemR: "Rocket League #1",    
       },
       {
-        itemL: "he has a animegirl bodypillow",
+        itemL: "He has a animegirl bodypillow",
         itemR: "PC Hocası Facebook group addict",
       },
       {
         itemL: "Anime addict",
         itemR: "Tiktok star",
+      },
+    ],
+    anime_girls: [
+      {
+        itemL: "Chizuru Ichinose",
+        itemR: "Rin Tohsaka",
+      },
+      {
+        itemL: "Nami",
+        itemR: "Nico Robin",
+      },
+      {
+        itemL: "Ino Yamanaka",
+        itemR: "Boa Hancock",
       },
     ],
     sm: {
@@ -119,6 +147,20 @@ const User = [
         itemR: "Virgin",
       },
     ],
+    anime_girls: [
+      {
+        itemL: "Mikasa Ackerman",
+        itemR: "Nobara Kugisaki",
+      },
+      {
+        itemL: "Makima",
+        itemR: "Power",
+      },
+      {
+        itemL: "Lucoa",
+        itemR: "Esdeath",
+      },
+    ],
     sm: {
       instagram: "https://www.instagram.com/sainntt/",
       steam: "https://steamcommunity.com/id/safa61",
@@ -157,6 +199,19 @@ const User = [
       },
       {
         itemL: "He can carry your ass in any game",
+      },
+    ],
+    anime_girls: [
+      {
+        itemL: "Zero Two",
+        itemR: "Tohka Yatogami",
+      },
+      {
+        itemL: "Akame",
+        itemR: "Kyouko Hori",
+      },
+      {
+        itemL: "Esdeah",
       },
     ],
     sm: {

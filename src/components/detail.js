@@ -29,10 +29,12 @@ function Detail(props) {
   const messages = {
     "tr-TR": {
       title: "DETAYLAR",
+      title_2: "En sevdiği anime kızları",
       btn: "Ana Sayfa",
     },
     "en-US": {
       title: "DETAILS",
+      title_2: "Favorite anime girls",
       btn: "Home",
     },
   };
@@ -97,6 +99,24 @@ function Detail(props) {
                   </List>
                 </SimpleGrid>
               </Box>
+            </Stack>
+            <Stack>
+              <Text
+                fontSize={{ base: "14px", lg: "16px" }}
+                color={titleColor}
+                fontWeight={"500"}
+                mb={"4"}
+              >
+                <FormattedMessage id="title_2" />
+              </Text>
+              <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+                <List spacing={2} color={textColor}>
+                  {props.animeL}
+                </List>
+                <List spacing={2} color={textColor}>
+                  {props.animeR}
+                </List>
+              </SimpleGrid>
             </Stack>
             <Box
               display={"flex"}
@@ -179,7 +199,6 @@ function Detail(props) {
               <Button
                 rounded={"none"}
                 w={"full"}
-                mt={8}
                 size={"lg"}
                 py={"7"}
                 bg={btnBg}
