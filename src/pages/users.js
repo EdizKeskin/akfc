@@ -211,7 +211,7 @@ const User = [
         itemR: "Kyouko Hori",
       },
       {
-        itemL: "Esdeah",
+        itemL: "Esdeath",
       },
     ],
     sm: {

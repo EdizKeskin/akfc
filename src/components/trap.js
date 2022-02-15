@@ -13,8 +13,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 
-import { useLang } from "../context/langContext";
-import { IntlProvider, FormattedMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 
 function Trap() {
   const { isOpen, onOpen } = useDisclosure();
@@ -22,21 +21,8 @@ function Trap() {
   const textColor = useColorModeValue("black", "white");
   const btnRef = React.useRef();
 
-  const { lang } = useLang();
-
-  const messages = {
-    "tr-TR": {
-      btn: "Sakın tıklama",
-      err:"Tıklama yazmıştım :D"
-    },
-    "en-US": {
-      btn: "Dont touch",
-      err:"Told u :D"
-    },
-  };
-
   return (
-    <IntlProvider messages={messages[lang]} locale={lang}>
+    <>
       <Box position={"absolute"} bottom={"0"} right={"0"}>
         <Button
           ref={btnRef}
@@ -46,7 +32,7 @@ function Trap() {
           color={"gray.500"}
           size={"sm"}
         >
-          <FormattedMessage id="btn" />
+          <FormattedMessage id="trap_btn" />
         </Button>
       </Box>
       <Drawer
@@ -73,7 +59,7 @@ function Trap() {
               color={textColor}
             >
               <p>
-                <FormattedMessage id="err" />
+                <FormattedMessage id="prank" />
               </p>
               <Center>
                 <Image
@@ -87,7 +73,7 @@ function Trap() {
           </DrawerHeader>
         </DrawerContent>
       </Drawer>
-    </IntlProvider>
+    </>
   );
 }
 

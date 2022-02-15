@@ -1,4 +1,5 @@
 import { Box, Heading, Text, Button } from "@chakra-ui/react";
+import { FormattedMessage } from "react-intl";
 import { Link } from "react-router-dom";
 
 function err404() {
@@ -14,13 +15,15 @@ function err404() {
         404
       </Heading>
       <Text fontSize="18px" mt={3} mb={2}>
-        Sayfa Bulunamadı
+        <FormattedMessage id="title_404" />
       </Text>
       <Text color={"gray.500"} mb={6}>
-        Sanırım yolunu kaybettin aşşağıdaki butona basarak ana sayfaya ışınlanabilirsin.
+        <FormattedMessage id="desc_404" />
       </Text>
       <Link to="/">
-        <Button colorScheme="red">Ana Sayfa</Button>
+        <Button colorScheme="red">
+          <FormattedMessage id="btn_404" />
+        </Button>
       </Link>
     </Box>
   );

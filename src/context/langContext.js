@@ -1,4 +1,6 @@
 import { createContext, useState, useEffect, useContext } from "react";
+import { IntlProvider } from "react-intl";
+import Messages from "./messages";
 
 const LangContext = createContext();
 
@@ -12,8 +14,11 @@ export const LangProvider = ({ children }) => {
     lang,
     setLang,
   };
+
   return (
-    <LangContext.Provider value={values}>{children}</LangContext.Provider>
+    <LangContext.Provider value={values}>
+      <IntlProvider messages={Messages[lang]} locale={lang}>{children}</IntlProvider>
+    </LangContext.Provider>
   );
 };
 
