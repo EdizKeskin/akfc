@@ -12,14 +12,21 @@ import {
   StackDivider,
   List,
   useColorModeValue,
+  ListItem,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FaInstagram, FaSteam, FaTwitter, FaGithub } from "react-icons/fa";
 import { BiWorld } from "react-icons/bi";
-
 import { FormattedMessage } from "react-intl";
+import Users from "./users";
+import { useLang } from "../context/langContext";
 
-function Detail(props) {
+function Profiles() {
+  const { lang } = useLang();
+  const { id } = useParams();
+  const user = Users.find((item) => item._id === id);
+  console.log(user);
+
   const textColor = useColorModeValue("black", "white");
   const titleColor = useColorModeValue("yellow.500", "yellow.300");
   const btnBg = useColorModeValue("gray.900", "gray.50");
@@ -36,7 +43,7 @@ function Detail(props) {
           <Image
             rounded={"md"}
             alt={"user image"}
-            src={props.image}
+            src={user.avatar}
             fit={"cover"}
             align={"center"}
             w={"100%"}
@@ -51,7 +58,7 @@ function Detail(props) {
               fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}
               color={textColor}
             >
-              {props.name}
+              {user.name}
             </Heading>
           </Box>
 
@@ -62,7 +69,7 @@ function Detail(props) {
           >
             <VStack spacing={{ base: 4, sm: 6 }}>
               <Text fontSize={"lg"} color={textColor}>
-                {props.desc}
+                {user.desc}
               </Text>
             </VStack>
             <Box>
@@ -77,10 +84,22 @@ function Detail(props) {
 
               <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
                 <List spacing={2} color={textColor}>
-                  {props.listL}
+                  {lang === "tr-TR"
+                    ? user.detail.map((item, index) => (
+                        <ListItem key={index}>{item.itemL}</ListItem>
+                      ))
+                    : user.detail_en.map((item, index) => (
+                        <ListItem key={index}>{item.itemL}</ListItem>
+                      ))}
                 </List>
                 <List spacing={2} color={textColor}>
-                  {props.listR}
+                  {lang === "tr-TR"
+                    ? user.detail.map((item, index) => (
+                        <ListItem key={index}>{item.itemR}</ListItem>
+                      ))
+                    : user.detail_en.map((item, index) => (
+                        <ListItem key={index}>{item.itemR}</ListItem>
+                      ))}
                 </List>
               </SimpleGrid>
             </Box>
@@ -96,10 +115,14 @@ function Detail(props) {
             </Text>
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
               <List spacing={2} color={textColor}>
-                {props.animeL}
+                {user.anime_girls.map((item, index) => (
+                  <ListItem key={index}>{item.itemL}</ListItem>
+                ))}
               </List>
               <List spacing={2} color={textColor}>
-                {props.animeR}
+                {user.anime_girls.map((item, index) => (
+                  <ListItem key={index}>{item.itemR}</ListItem>
+                ))}
               </List>
             </SimpleGrid>
           </Stack>
@@ -110,10 +133,10 @@ function Detail(props) {
             justifyContent="center"
             mb={6}
           >
-            {props.website && (
+            {user.website && (
               <Text
                 as={"a"}
-                href={props.website}
+                href={user.website}
                 mr="6"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -124,10 +147,10 @@ function Detail(props) {
                 <BiWorld size={"30px"} />
               </Text>
             )}
-            {props.github && (
+            {user.github && (
               <Text
                 as={"a"}
-                href={props.github}
+                href={user.github}
                 mr="6"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -138,10 +161,10 @@ function Detail(props) {
                 <FaGithub size={"30px"} />
               </Text>
             )}
-            {props.instagram && (
+            {user.instagram && (
               <Text
                 as={"a"}
-                href={props.instagram}
+                href={user.instagram}
                 mr="6"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -152,10 +175,10 @@ function Detail(props) {
                 <FaInstagram size={"30px"} />
               </Text>
             )}
-            {props.steam && (
+            {user.steam && (
               <Text
                 as={"a"}
-                href={props.steam}
+                href={user.steam}
                 mr="6"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -166,10 +189,10 @@ function Detail(props) {
                 <FaSteam size={"30px"} />
               </Text>
             )}
-            {props.twitter && (
+            {user.twitter && (
               <Text
                 as={"a"}
-                href={props.twitter}
+                href={user.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
                 color={textColor}
@@ -203,4 +226,4 @@ function Detail(props) {
   );
 }
 
-export default Detail;
+export default Profiles;

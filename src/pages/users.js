@@ -2,7 +2,7 @@ const User = [
   {
     name: "Ediz Keskin",
     tag: "@Sharpness",
-    link: "/ediz",
+    _id: "ediz",
     avatar: "https://media2.giphy.com/media/STx6D0t05pZEidimsU/giphy.gif",
     desc: "Boş bilgilerin kralı",
     desc_en: "Useless information king",
@@ -57,7 +57,7 @@ const User = [
   {
     name: "İlke Eren Demirtaş",
     tag: "@Hypnamed",
-    link: "/ilke",
+    _id: "ilke",
     avatar:
       "https://cdn.discordapp.com/attachments/877600152083374122/938766237071183912/LuffyLaugh.png",
     desc: "En büyük hayali korsanlar kralı olmak",
@@ -115,7 +115,7 @@ const User = [
   {
     name: "Taha Aslan",
     tag: "@Sain7",
-    link: "/taha",
+    _id: "taha",
     desc: "Abi düşmanı",
     desc_en: "Enemy of brother",
     avatar: "https://c.tenor.com/kX00C2557JgAAAAC/bleach.gif",
@@ -170,7 +170,7 @@ const User = [
   {
     name: "Yiğithan Uğur",
     tag: "@Tohka",
-    link: "/yigit",
+    _id: "yigit",
     avatar:
       "https://media.discordapp.net/attachments/852594392833327146/938770781436014622/Anime_iconsby_Rasla_.jpeg?width=559&height=559",
     desc: "1 numaralı anime düşmanı",

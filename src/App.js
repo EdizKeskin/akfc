@@ -1,6 +1,6 @@
 import "./App.css";
 import { useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Box, useColorModeValue } from "@chakra-ui/react";
 
 import AOS from "aos";
@@ -8,12 +8,9 @@ import "aos/dist/aos.css";
 
 //PAGES
 import Home from "./pages/home";
-import Ediz from "./pages/team/ediz";
-import Ilke from "./pages/team/ilke";
-import Mustafa from "./pages/team/mustafa";
-import Yigit from "./pages/team/yigit";
 import Err404 from "./pages/err/err404";
 import BtnGroup from "./components/btnGroup";
+import Detail from "./pages/profiles";
 
 function App() {
   const bg = useColorModeValue("white", "#282c34");
@@ -29,26 +26,12 @@ function App() {
       <Router>
         <div>
           <BtnGroup />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/ediz">
-              <Ediz />
-            </Route>
-            <Route path="/ilke">
-              <Ilke />
-            </Route>
-            <Route path="/taha">
-              <Mustafa />
-            </Route>
-            <Route path="/yigit">
-              <Yigit />
-            </Route>
-            <Route path="*">
-              <Err404 />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/team/:id" element={<Detail />} />
+
+            <Route path="*" element={<Err404 />} />
+          </Routes>
         </div>
       </Router>
     </Box>
