@@ -86,7 +86,7 @@ function Card({ item }) {
           </Text>
         </Box>
 
-        <Link to={`team/${item._id}`}>
+        <Link to={`team/${item.link}`}>
           <Button
             flex={1}
             colorScheme={"teal"}

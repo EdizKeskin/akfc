@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect } from "react";
+import { useEffect, } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Box, useColorModeValue } from "@chakra-ui/react";
 
@@ -21,6 +21,8 @@ function App() {
     });
     AOS.refresh();
   }, []);
+
+  
   return (
     <Box bg={bg} minH="100vh">
       <Router>
@@ -29,7 +31,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/team/:id" element={<Detail />} />
-
             <Route path="*" element={<Err404 />} />
           </Routes>
         </div>

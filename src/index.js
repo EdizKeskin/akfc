@@ -8,14 +8,25 @@ import { LangProvider } from "./context/langContext";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "./theme";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const client = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+    },
+  },});
 
 ReactDOM.render(
   <React.StrictMode>
-    <ChakraProvider theme={theme}>
-      <LangProvider>
-        <App />
-      </LangProvider>
-    </ChakraProvider>
+    <QueryClientProvider client={client}>
+      <ChakraProvider theme={theme}>
+        <LangProvider>
+          <App />
+        </LangProvider>
+      </ChakraProvider>
+    </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

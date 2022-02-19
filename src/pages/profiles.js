@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import {
   Box,
   Container,
@@ -18,19 +19,54 @@ import { Link, useParams } from "react-router-dom";
 import { FaInstagram, FaSteam, FaTwitter, FaGithub } from "react-icons/fa";
 import { BiWorld } from "react-icons/bi";
 import { FormattedMessage } from "react-intl";
-import Users from "./users";
 import { useLang } from "../context/langContext";
+
+import axios from "axios";
+import { useQuery } from "react-query";
+import CustomSpinner from "../components/spinner";
 
 function Profiles() {
   const { lang } = useLang();
   const { id } = useParams();
-  const user = Users.find((item) => item._id === id);
-  console.log(user);
 
   const textColor = useColorModeValue("black", "white");
   const titleColor = useColorModeValue("yellow.500", "yellow.300");
   const btnBg = useColorModeValue("gray.900", "gray.50");
   const btnColor = useColorModeValue("white", "gray.900");
+
+  const endpoint = process.env.REACT_APP_GRAPHQL_ENDPOINT;
+  const MEMBER_QUERY = useMemo(() => {
+    return `
+  {
+    members {
+      link
+      animeGirls
+      avatar
+      desc
+      descEn
+      detail
+      detailEn
+      name
+      sm
+    }
+  }
+`;
+  }, []);
+
+  const { data, isLoading, error } = useQuery("launches", () => {
+    return axios({
+      url: endpoint,
+      method: "POST",
+      data: {
+        query: MEMBER_QUERY,
+      },
+    }).then((response) => response.data.data);
+  });
+
+  if (isLoading) return <CustomSpinner/>;
+  if (error) return <pre>{error.message}</pre>;
+
+  const member = data.members.find((item) => item.link === id);
 
   return (
     <Container maxW={"7xl"}>
@@ -43,7 +79,7 @@ function Profiles() {
           <Image
             rounded={"md"}
             alt={"user image"}
-            src={user.avatar}
+            src={member.avatar}
             fit={"cover"}
             align={"center"}
             w={"100%"}
@@ -58,7 +94,7 @@ function Profiles() {
               fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}
               color={textColor}
             >
-              {user.name}
+              {member.name}
             </Heading>
           </Box>
 
@@ -69,7 +105,7 @@ function Profiles() {
           >
             <VStack spacing={{ base: 4, sm: 6 }}>
               <Text fontSize={"lg"} color={textColor}>
-                {user.desc}
+                {lang === "tr-TR" ? member.desc : member.descEn}
               </Text>
             </VStack>
             <Box>
@@ -85,19 +121,19 @@ function Profiles() {
               <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
                 <List spacing={2} color={textColor}>
                   {lang === "tr-TR"
-                    ? user.detail.map((item, index) => (
+                    ? member.detail.map((item, index) => (
                         <ListItem key={index}>{item.itemL}</ListItem>
                       ))
-                    : user.detail_en.map((item, index) => (
+                    : member.detailEn.map((item, index) => (
                         <ListItem key={index}>{item.itemL}</ListItem>
                       ))}
                 </List>
                 <List spacing={2} color={textColor}>
                   {lang === "tr-TR"
-                    ? user.detail.map((item, index) => (
+                    ? member.detail.map((item, index) => (
                         <ListItem key={index}>{item.itemR}</ListItem>
                       ))
-                    : user.detail_en.map((item, index) => (
+                    : member.detailEn.map((item, index) => (
                         <ListItem key={index}>{item.itemR}</ListItem>
                       ))}
                 </List>
@@ -115,12 +151,12 @@ function Profiles() {
             </Text>
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
               <List spacing={2} color={textColor}>
-                {user.anime_girls.map((item, index) => (
+                {member.animeGirls.map((item, index) => (
                   <ListItem key={index}>{item.itemL}</ListItem>
                 ))}
               </List>
               <List spacing={2} color={textColor}>
-                {user.anime_girls.map((item, index) => (
+                {member.animeGirls.map((item, index) => (
                   <ListItem key={index}>{item.itemR}</ListItem>
                 ))}
               </List>
@@ -133,10 +169,10 @@ function Profiles() {
             justifyContent="center"
             mb={6}
           >
-            {user.website && (
+            {member.sm.website && (
               <Text
                 as={"a"}
-                href={user.website}
+                href={member.sm.website}
                 mr="6"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -147,10 +183,10 @@ function Profiles() {
                 <BiWorld size={"30px"} />
               </Text>
             )}
-            {user.github && (
+            {member.sm.github && (
               <Text
                 as={"a"}
-                href={user.github}
+                href={member.sm.github}
                 mr="6"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -161,10 +197,10 @@ function Profiles() {
                 <FaGithub size={"30px"} />
               </Text>
             )}
-            {user.instagram && (
+            {member.sm.instagram && (
               <Text
                 as={"a"}
-                href={user.instagram}
+                href={member.sm.instagram}
                 mr="6"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -175,10 +211,10 @@ function Profiles() {
                 <FaInstagram size={"30px"} />
               </Text>
             )}
-            {user.steam && (
+            {member.sm.steam && (
               <Text
                 as={"a"}
-                href={user.steam}
+                href={member.sm.steam}
                 mr="6"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -189,10 +225,10 @@ function Profiles() {
                 <FaSteam size={"30px"} />
               </Text>
             )}
-            {user.twitter && (
+            {member.sm.twitter && (
               <Text
                 as={"a"}
-                href={user.twitter}
+                href={member.sm.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
                 color={textColor}
