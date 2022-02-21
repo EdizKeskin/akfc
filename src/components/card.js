@@ -27,6 +27,7 @@ function Card({ item }) {
         p={6}
         textAlign={"center"}
         mx={6}
+        mb={5}
       >
         <Avatar
           size={"xl"}
@@ -86,7 +87,7 @@ function Card({ item }) {
           </Text>
         </Box>
 
-        <Link to={`team/${item.link}`}>
+        <Link to={`/${item.link}`}>
           <Button
             flex={1}
             colorScheme={"teal"}

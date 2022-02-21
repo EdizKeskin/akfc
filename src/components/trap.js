@@ -31,6 +31,7 @@ function Trap() {
           variant="ghost"
           color={"gray.500"}
           size={"sm"}
+          mt="3"
         >
           <FormattedMessage id="trap_btn" />
         </Button>

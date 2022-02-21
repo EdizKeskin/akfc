@@ -11,6 +11,7 @@ import Home from "./pages/home";
 import Err404 from "./pages/err/err404";
 import BtnGroup from "./components/btnGroup";
 import Detail from "./pages/profiles";
+import Contact from "./pages/contact/contact";
 
 function App() {
   const bg = useColorModeValue("white", "#282c34");
@@ -30,7 +31,8 @@ function App() {
           <BtnGroup />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/team/:id" element={<Detail />} />
+            <Route path="/:id" element={<Detail />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Err404 />} />
           </Routes>
         </div>

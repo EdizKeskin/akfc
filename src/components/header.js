@@ -6,7 +6,6 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { FaDiscord } from "react-icons/fa";
-
 import { FormattedMessage } from "react-intl";
 
 function Header() {
@@ -56,6 +55,7 @@ function Header() {
         <a href="https://discord.gg/VrwJWNSJfA">
           <FormattedMessage id="discord" />
         </a>
+        
       </Button>
     </Box>
   );

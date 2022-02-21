@@ -11,7 +11,11 @@ const Messages = {
     prank: "Tıklama yazmıştım :D",
     title_404:"Sayfa Bulunamadı",
     desc_404:"Sanırım yolunu kaybettin aşağıdaki butona basarak ana sayfaya ışınlanabilirsin.",
-    btn_404:"Ana Sayfa"
+    btn_404:"Ana Sayfa",
+    contact:"İletişim",
+    formName:"İsim",
+    formSubmit:"Gönder",
+    formMessage:"Mesaj",
   },
   "en-US": {
     desc: "We're 4 friends who love anime girls. We play games together and laugh at stupid jokes.",
@@ -25,7 +29,11 @@ const Messages = {
     prank: "Told u :D",
     title_404:"Page Not Found",
     desc_404:"I think you lost your way, you can teleport to the main page by pressing the button.",
-    btn_404:"Home"
+    btn_404:"Home",
+    contact:"Contact",
+    formName:"Name",
+    formSubmit:"Submit",
+    formMessage:"Message",
   },
 };
 

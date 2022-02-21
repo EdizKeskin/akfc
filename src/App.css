@@ -1,18 +1,20 @@
 *:before,
 *:after {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: 10s all;
 }
+
 *::-webkit-scrollbar {
-  width: 0.45rem;
-  background-color: #282c34;
+    width: 0.45rem;
+    background-color: #282c34;
 }
+
 *::-webkit-scrollbar-thumb {
-  background-color: #171923;
-  border-radius: 3px;
+    background-color: #171923;
+    border-radius: 3px;
 }
+
 *::-webkit-scrollbar-track {
-  background: transparent;
+    background: transparent;
 }
-
-
