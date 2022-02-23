@@ -4,6 +4,7 @@ import {
   Button,
   useColorMode,
   useColorModeValue,
+  Tooltip,
 } from "@chakra-ui/react";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 import { ImEarth } from "react-icons/im";
@@ -34,20 +35,43 @@ function BtnGroup() {
         zIndex={"overlay"}
         data-aos="zoom-in-up"
       >
-        <IconButton
-          icon={<ImEarth />}
-          onClick={langBtnHandler}
-          bgColor={btnColor}
-        />
-
-        <IconButton
-          onClick={toggleColorMode}
-          bgColor={btnColor}
-          icon={colorMode === "light" ? <BsFillMoonFill /> : <BsFillSunFill />}
-        />
+        <Tooltip
+          hasArrow
+          label={lang === "tr-TR" ? "English" : "Türkçe"}
+          bg="gray.300"
+          color="black"
+          borderRadius={"md"}
+        >
+          <IconButton
+            icon={<ImEarth />}
+            onClick={langBtnHandler}
+            bgColor={btnColor}
+          />
+        </Tooltip>
+        <Tooltip
+          hasArrow
+          label={colorMode === "light" ? "Dark Mode" : "Light Mode"}
+          bg="gray.300"
+          color="black"
+          borderRadius={"md"}
+        >
+          <IconButton
+            onClick={toggleColorMode}
+            bgColor={btnColor}
+            icon={
+              colorMode === "light" ? <BsFillMoonFill /> : <BsFillSunFill />
+            }
+          />
+        </Tooltip>
       </ButtonGroup>
       <Link to="contact">
-        <Button variant={"link"} position={"absolute"} bottom={3} left={3} zIndex="2">
+        <Button
+          variant={"link"}
+          position={"absolute"}
+          bottom={3}
+          left={3}
+          zIndex="2"
+        >
           <FormattedMessage id="contact" />
         </Button>
       </Link>

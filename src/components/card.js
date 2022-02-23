@@ -6,6 +6,7 @@ import {
   Text,
   Button,
   useColorModeValue,
+  Tooltip,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { FaInstagram, FaSteam, FaTwitter } from "react-icons/fa";
@@ -50,41 +51,65 @@ function Card({ item }) {
           justifyContent="center"
           mb={6}
         >
-          <Text
-            as={"a"}
-            href={item.sm.instagram}
-            mr="6"
-            target="_blank"
-            rel="noopener noreferrer"
-            color={textColor}
-            _hover={{ color: "teal.200" }}
-            transition="all 0.3s"
+          <Tooltip
+            hasArrow
+            label="Instagram"
+            bg="gray.300"
+            color="black"
+            borderRadius={"md"}
           >
-            <FaInstagram size={"30px"} />
-          </Text>
-          <Text
-            as={"a"}
-            href={item.sm.steam}
-            mr="6"
-            target="_blank"
-            rel="noopener noreferrer"
-            color={textColor}
-            _hover={{ color: "teal.200" }}
-            transition="all 0.3s"
+            <Text
+              as={"a"}
+              href={item.sm.instagram}
+              mr="6"
+              target="_blank"
+              rel="noopener noreferrer"
+              color={textColor}
+              _hover={{ color: "teal.200" }}
+              transition="all 0.3s"
+            >
+              <FaInstagram size={"30px"} />
+            </Text>
+          </Tooltip>
+          <Tooltip
+            hasArrow
+            label="Steam"
+            bg="gray.300"
+            color="black"
+            borderRadius={"md"}
           >
-            <FaSteam size={"30px"} />
-          </Text>
-          <Text
-            as={"a"}
-            href={item.sm.twitter}
-            target="_blank"
-            rel="noopener noreferrer"
-            color={textColor}
-            _hover={{ color: "teal.200" }}
-            transition="all 0.3s"
+            <Text
+              as={"a"}
+              href={item.sm.steam}
+              mr="6"
+              target="_blank"
+              rel="noopener noreferrer"
+              color={textColor}
+              _hover={{ color: "teal.200" }}
+              transition="all 0.3s"
+            >
+              <FaSteam size={"30px"} />
+            </Text>
+          </Tooltip>
+          <Tooltip
+            hasArrow
+            label="Twitter"
+            bg="gray.300"
+            color="black"
+            borderRadius={"md"}
           >
-            <FaTwitter size={"30px"} />
-          </Text>
+            <Text
+              as={"a"}
+              href={item.sm.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              color={textColor}
+              _hover={{ color: "teal.200" }}
+              transition="all 0.3s"
+            >
+              <FaTwitter size={"30px"} />
+            </Text>
+          </Tooltip>
         </Box>
 
         <Link to={`/${item.link}`}>

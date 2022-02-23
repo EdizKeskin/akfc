@@ -4,11 +4,14 @@ import {
   Button,
   useColorMode,
   useColorModeValue,
+  Tooltip,
 } from "@chakra-ui/react";
 import { FaDiscord } from "react-icons/fa";
 import { FormattedMessage } from "react-intl";
+import {useLang} from "../context/langContext";
 
 function Header() {
+  const { lang } = useLang();
   const { colorMode, toggleColorMode } = useColorMode();
   const textColor = useColorModeValue("black", "white");
 
@@ -52,10 +55,16 @@ function Header() {
         textAlign={"center"}
         leftIcon={<FaDiscord />}
       >
-        <a href="https://discord.gg/VrwJWNSJfA">
-          <FormattedMessage id="discord" />
-        </a>
-        
+        <Tooltip
+          label={lang === "tr-TR" ? "Discord sunucumuz" : "Discord server"}
+          bg="gray.300"
+          color="black"
+          borderRadius={"md"}
+        >
+          <a href="https://discord.gg/VrwJWNSJfA">
+            <FormattedMessage id="discord" />
+          </a>
+        </Tooltip>
       </Button>
     </Box>
   );

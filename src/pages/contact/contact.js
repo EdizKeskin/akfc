@@ -57,7 +57,18 @@ function Contact() {
           timer: 2000,
         });
       } catch (error) {
-        console.log(error);
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title:
+            lang === "tr-TR"
+              ? "Mesajınız iletilemedi."
+              : "Message could not be delivered.",
+          showConfirmButton: false,
+          background: colorMode === "dark" ? "#2D3748" : "",
+          color: colorMode === "dark" ? "#fff" : "",
+          timer: 2000,
+        });
       }
     },
   });
@@ -129,7 +140,6 @@ function Contact() {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.email}
-                autoComplete="none"
                 isInvalid={formik.touched.email && formik.errors.email}
                 placeholder={
                   lang === "tr-TR"

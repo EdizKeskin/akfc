@@ -1,4 +1,4 @@
-import {useMemo} from "react";
+import { useMemo } from "react";
 import { Box, Grid } from "@chakra-ui/react";
 import Card from "../components/card";
 import Header from "../components/header";
@@ -23,6 +23,7 @@ function Home() {
       detailEn
       name
       sm
+      tag
     }
   }
 `;
@@ -38,7 +39,7 @@ function Home() {
     }).then((response) => response.data.data);
   });
 
-  if (isLoading) return <CustomSpinner/>;
+  if (isLoading) return <CustomSpinner />;
   if (error) return <pre>{error.message}</pre>;
 
   return (

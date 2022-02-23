@@ -14,13 +14,19 @@ import {
   List,
   useColorModeValue,
   ListItem,
+  Tooltip,
 } from "@chakra-ui/react";
-import { Link, useParams } from "react-router-dom";
-import { FaInstagram, FaSteam, FaTwitter, FaGithub } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaSteam,
+  FaTwitter,
+  FaGithub,
+  FaTwitch,
+} from "react-icons/fa";
 import { BiWorld } from "react-icons/bi";
 import { FormattedMessage } from "react-intl";
 import { useLang } from "../context/langContext";
-
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "react-query";
 import CustomSpinner from "../components/spinner";
@@ -48,6 +54,7 @@ function Profiles() {
       detailEn
       name
       sm
+      tag
     }
   }
 `;
@@ -63,7 +70,7 @@ function Profiles() {
     }).then((response) => response.data.data);
   });
 
-  if (isLoading) return <CustomSpinner/>;
+  if (isLoading) return <CustomSpinner />;
   if (error) return <pre>{error.message}</pre>;
 
   const member = data.members.find((item) => item.link === id);
@@ -170,73 +177,135 @@ function Profiles() {
             mb={6}
           >
             {member.sm.website && (
-              <Text
-                as={"a"}
-                href={member.sm.website}
-                mr="6"
-                target="_blank"
-                rel="noopener noreferrer"
-                color={textColor}
-                _hover={{ color: "yellow.300" }}
-                transition="all 0.3s"
+              <Tooltip
+                hasArrow
+                label="Website"
+                bg="gray.300"
+                color="black"
+                borderRadius={"md"}
               >
-                <BiWorld size={"30px"} />
-              </Text>
+                <Text
+                  as={"a"}
+                  href={member.sm.website}
+                  mr="6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color={textColor}
+                  _hover={{ color: "yellow.300" }}
+                  transition="all 0.3s"
+                >
+                  <BiWorld size={"30px"} />
+                </Text>
+              </Tooltip>
+            )}
+            {member.sm.twitch && (
+              <Tooltip
+                hasArrow
+                label="Twitch"
+                bg="gray.300"
+                color="black"
+                borderRadius={"md"}
+              >
+                <Text
+                  as={"a"}
+                  href={member.sm.twitch}
+                  mr="6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color={textColor}
+                  _hover={{ color: "yellow.300" }}
+                  transition="all 0.3s"
+                >
+                  <FaTwitch size={"30px"} />
+                </Text>
+              </Tooltip>
             )}
             {member.sm.github && (
-              <Text
-                as={"a"}
-                href={member.sm.github}
-                mr="6"
-                target="_blank"
-                rel="noopener noreferrer"
-                color={textColor}
-                _hover={{ color: "yellow.300" }}
-                transition="all 0.3s"
+              <Tooltip
+                hasArrow
+                label="Github"
+                bg="gray.300"
+                color="black"
+                borderRadius={"md"}
               >
-                <FaGithub size={"30px"} />
-              </Text>
+                <Text
+                  as={"a"}
+                  href={member.sm.github}
+                  mr="6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color={textColor}
+                  _hover={{ color: "yellow.300" }}
+                  transition="all 0.3s"
+                >
+                  <FaGithub size={"30px"} />
+                </Text>
+              </Tooltip>
             )}
             {member.sm.instagram && (
-              <Text
-                as={"a"}
-                href={member.sm.instagram}
-                mr="6"
-                target="_blank"
-                rel="noopener noreferrer"
-                color={textColor}
-                _hover={{ color: "yellow.300" }}
-                transition="all 0.3s"
+              <Tooltip
+                hasArrow
+                label="Instagram"
+                bg="gray.300"
+                color="black"
+                borderRadius={"md"}
               >
-                <FaInstagram size={"30px"} />
-              </Text>
+                <Text
+                  as={"a"}
+                  href={member.sm.instagram}
+                  mr="6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color={textColor}
+                  _hover={{ color: "yellow.300" }}
+                  transition="all 0.3s"
+                >
+                  <FaInstagram size={"30px"} />
+                </Text>
+              </Tooltip>
             )}
             {member.sm.steam && (
-              <Text
-                as={"a"}
-                href={member.sm.steam}
-                mr="6"
-                target="_blank"
-                rel="noopener noreferrer"
-                color={textColor}
-                _hover={{ color: "yellow.300" }}
-                transition="all 0.3s"
+              <Tooltip
+                hasArrow
+                label="Steam"
+                bg="gray.300"
+                color="black"
+                borderRadius={"md"}
               >
-                <FaSteam size={"30px"} />
-              </Text>
+                <Text
+                  as={"a"}
+                  href={member.sm.steam}
+                  mr="6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color={textColor}
+                  _hover={{ color: "yellow.300" }}
+                  transition="all 0.3s"
+                >
+                  <FaSteam size={"30px"} />
+                </Text>
+              </Tooltip>
             )}
             {member.sm.twitter && (
-              <Text
-                as={"a"}
-                href={member.sm.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                color={textColor}
-                _hover={{ color: "yellow.300" }}
-                transition="all 0.3s"
+              <Tooltip
+                hasArrow
+                label="Twitter"
+                bg="gray.300"
+                color="black"
+                borderRadius={"md"}
               >
-                <FaTwitter size={"30px"} />
-              </Text>
+                <Text
+                  as={"a"}
+                  href={member.sm.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color={textColor}
+                  _hover={{ color: "yellow.300" }}
+                  transition="all 0.3s"
+                >
+                  <FaTwitter size={"30px"} />
+                </Text>
+              </Tooltip>
             )}
           </Box>
           <Link to="/">
@@ -252,6 +321,7 @@ function Profiles() {
                 transform: "translateY(2px)",
                 boxShadow: "lg",
               }}
+              mb={5}
             >
               <FormattedMessage id="home_btn" />
             </Button>
