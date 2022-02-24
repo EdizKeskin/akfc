@@ -74,7 +74,7 @@ function Contact() {
   });
 
   return (
-    <Flex align="center" width="full" justifyContent="center">
+    <Flex align="center" width="full" justifyContent="center" data-aos="fade-up">
       <Box position={"absolute"} top={"5"} left={"5"} mt="3">
         <Link to="/">
           <IconButton icon={<IoIosReturnLeft />} bgColor={btnColor} />
