@@ -24,6 +24,10 @@ function Home() {
       name
       sm
       tag
+      bestSeries
+      bestGames
+      bestMovies
+      bestAnime
     }
   }
 `;

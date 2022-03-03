@@ -15,6 +15,18 @@ import {
   useColorModeValue,
   ListItem,
   Tooltip,
+  Accordion,
+  AccordionPanel,
+  AccordionIcon,
+  AccordionButton,
+  AccordionItem,
+  Tab,
+  TabList,
+  Tabs,
+  TabPanels,
+  TabPanel,
+  Breadcrumb,
+  BreadcrumbItem,
 } from "@chakra-ui/react";
 import {
   FaInstagram,
@@ -24,6 +36,7 @@ import {
   FaTwitch,
 } from "react-icons/fa";
 import { BiWorld } from "react-icons/bi";
+import { AiOutlineRight } from "react-icons/ai";
 import { FormattedMessage } from "react-intl";
 import { useLang } from "../context/langContext";
 import { Link, useParams } from "react-router-dom";
@@ -55,6 +68,10 @@ function Profiles() {
       name
       sm
       tag
+      bestSeries
+      bestGames
+      bestMovies
+      bestAnime
     }
   }
 `;
@@ -80,18 +97,36 @@ function Profiles() {
       <SimpleGrid
         columns={{ base: 1, lg: 2 }}
         spacing={{ base: 8, md: 10 }}
-        py={{ base: 18, md: 24 }}
+        py={{ base: 18, md: 20 }}
       >
         <Flex data-aos="fade-down">
-          <Image
-            rounded={"md"}
-            alt={"user image"}
-            src={member.avatar}
-            fit={"cover"}
-            align={"center"}
-            w={"100%"}
-            h={{ base: "100%", sm: "400px", lg: "500px" }}
-          />
+          <Box>
+            <Breadcrumb
+              display={{ base: "none", md: "block" }}
+              spacing="4px"
+              mb={4}
+              separator={<AiOutlineRight color="gray.500" />}
+            >
+              <BreadcrumbItem>
+                <Link to="/">
+                  <Button variant={"link"}>Home</Button>
+                </Link>
+              </BreadcrumbItem>
+
+              <BreadcrumbItem isCurrentPage>
+                <Button variant={"link"}>{member.name}</Button>
+              </BreadcrumbItem>
+            </Breadcrumb>
+            <Image
+              rounded={"md"}
+              alt={"user image"}
+              src={member.avatar}
+              fit={"cover"}
+              align={"center"}
+              w={"100%"}
+              h={{ base: "100%", sm: "400px", lg: "500px" }}
+            />
+          </Box>
         </Flex>
         <Stack spacing={{ base: 6, md: 10 }} data-aos="fade-up">
           <Box as={"header"}>
@@ -148,26 +183,108 @@ function Profiles() {
             </Box>
           </Stack>
           <Stack>
-            <Text
-              fontSize={{ base: "14px", lg: "16px" }}
-              color={titleColor}
-              fontWeight={"500"}
-              mb={"4"}
-            >
-              <FormattedMessage id="title_2" />
-            </Text>
-            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-              <List spacing={2} color={textColor}>
-                {member.animeGirls.map((item, index) => (
-                  <ListItem key={index}>{item.itemL}</ListItem>
-                ))}
-              </List>
-              <List spacing={2} color={textColor}>
-                {member.animeGirls.map((item, index) => (
-                  <ListItem key={index}>{item.itemR}</ListItem>
-                ))}
-              </List>
-            </SimpleGrid>
+            <Accordion allowToggle>
+              <AccordionItem borderColor={"gray.600"}>
+                <h2>
+                  <AccordionButton>
+                    <Box flex="1" textAlign="left">
+                      <FormattedMessage id="title_2" />
+                    </Box>
+                    <AccordionIcon />
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                  <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+                    <List spacing={2} color={textColor}>
+                      {member.animeGirls.map((item, index) => (
+                        <ListItem key={index}>{item.itemL}</ListItem>
+                      ))}
+                    </List>
+                    <List spacing={2} color={textColor}>
+                      {member.animeGirls.map((item, index) => (
+                        <ListItem key={index}>{item.itemR}</ListItem>
+                      ))}
+                    </List>
+                  </SimpleGrid>
+                </AccordionPanel>
+              </AccordionItem>
+
+              <AccordionItem borderColor={"gray.600"}>
+                <h2>
+                  <AccordionButton>
+                    <Box flex="1" textAlign="left">
+                      <FormattedMessage id="bestSeries" />
+                    </Box>
+                    <AccordionIcon />
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                  <Tabs variant="enclosed" borderColor={textColor}>
+                    <TabList >
+                      {member.bestGames.length > 0 && (
+                        <Tab>
+                          <FormattedMessage id="series" />
+                        </Tab>
+                      )}
+                      {member.bestGames.length > 0 && (
+                        <Tab>
+                          <FormattedMessage id="games" />
+                        </Tab>
+                      )}
+                      {member.bestAnime.length > 0 && (
+                        <Tab>
+                          <FormattedMessage id="anime" />
+                        </Tab>
+                      )}
+                      {member.bestMovies.length > 0 && (
+                        <Tab>
+                          <FormattedMessage id="movie" />
+                        </Tab>
+                      )}
+                    </TabList>
+
+                    <TabPanels>
+                      <TabPanel>
+                        <List color={textColor}>
+                          {member.bestSeries.map((item, index) => (
+                            <div key={index}>
+                              <ListItem>{item}</ListItem>
+                            </div>
+                          ))}
+                        </List>
+                      </TabPanel>
+                      <TabPanel>
+                        <List color={textColor}>
+                          {member.bestGames.map((item, index) => (
+                            <div key={index}>
+                              <ListItem>{item}</ListItem>
+                            </div>
+                          ))}
+                        </List>
+                      </TabPanel>
+                      <TabPanel>
+                        <List color={textColor}>
+                          {member.bestAnime.map((item, index) => (
+                            <div key={index}>
+                              <ListItem>{item}</ListItem>
+                            </div>
+                          ))}
+                        </List>
+                      </TabPanel>
+                      <TabPanel>
+                        <List color={textColor}>
+                          {member.bestMovies.map((item, index) => (
+                            <div key={index}>
+                              <ListItem>{item}</ListItem>
+                            </div>
+                          ))}
+                        </List>
+                      </TabPanel>
+                    </TabPanels>
+                  </Tabs>
+                </AccordionPanel>
+              </AccordionItem>
+            </Accordion>
           </Stack>
           <Box
             display={"flex"}
@@ -321,7 +438,7 @@ function Profiles() {
                 transform: "translateY(2px)",
                 boxShadow: "lg",
               }}
-              mb={5}
+              mb={{ base: "6", md: "0" }}
             >
               <FormattedMessage id="home_btn" />
             </Button>
