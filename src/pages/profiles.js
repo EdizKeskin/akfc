@@ -43,6 +43,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "react-query";
 import CustomSpinner from "../components/spinner";
+import { motion } from "framer-motion";
 
 function Profiles() {
   const { lang } = useLang();
@@ -220,7 +221,7 @@ function Profiles() {
                 </h2>
                 <AccordionPanel pb={4}>
                   <Tabs variant="enclosed" borderColor={textColor}>
-                    <TabList >
+                    <TabList>
                       {member.bestGames.length > 0 && (
                         <Tab>
                           <FormattedMessage id="series" />
@@ -426,22 +427,24 @@ function Profiles() {
             )}
           </Box>
           <Link to="/">
-            <Button
-              rounded={"none"}
-              w={"full"}
-              size={"lg"}
-              py={"7"}
-              bg={btnBg}
-              color={btnColor}
-              textTransform={"uppercase"}
-              _hover={{
-                transform: "translateY(2px)",
-                boxShadow: "lg",
-              }}
-              mb={{ base: "6", md: "0" }}
-            >
-              <FormattedMessage id="home_btn" />
-            </Button>
+            <motion.div whileTap={{ scale: 0.8 }}>
+              <Button
+                rounded={"none"}
+                w={"full"}
+                size={"lg"}
+                py={"7"}
+                bg={btnBg}
+                color={btnColor}
+                textTransform={"uppercase"}
+                _hover={{
+                  transform: "translateY(2px)",
+                  boxShadow: "lg",
+                }}
+                mb={{ base: "6", md: "0" }}
+              >
+                <FormattedMessage id="home_btn" />
+              </Button>
+            </motion.div>
           </Link>
         </Stack>
       </SimpleGrid>

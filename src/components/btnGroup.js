@@ -11,6 +11,7 @@ import { ImEarth } from "react-icons/im";
 import { useLang } from "../context/langContext";
 import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
+import { motion } from "framer-motion";
 
 function BtnGroup() {
   const { lang, setLang } = useLang();
@@ -42,11 +43,13 @@ function BtnGroup() {
           color="black"
           borderRadius={"md"}
         >
-          <IconButton
-            icon={<ImEarth />}
-            onClick={langBtnHandler}
-            bgColor={btnColor}
-          />
+          <motion.div whileTap={{ scale: 0.8 }}>
+            <IconButton
+              icon={<ImEarth />}
+              onClick={langBtnHandler}
+              bgColor={btnColor}
+            />
+          </motion.div>
         </Tooltip>
         <Tooltip
           hasArrow
@@ -55,13 +58,15 @@ function BtnGroup() {
           color="black"
           borderRadius={"md"}
         >
-          <IconButton
-            onClick={toggleColorMode}
-            bgColor={btnColor}
-            icon={
-              colorMode === "light" ? <BsFillMoonFill /> : <BsFillSunFill />
-            }
-          />
+          <motion.div whileTap={{ scale: 0.8 }}>
+            <IconButton
+              onClick={toggleColorMode}
+              bgColor={btnColor}
+              icon={
+                colorMode === "light" ? <BsFillMoonFill /> : <BsFillSunFill />
+              }
+            />
+          </motion.div>
         </Tooltip>
       </ButtonGroup>
       <Link to="contact">
