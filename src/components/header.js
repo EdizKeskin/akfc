@@ -8,12 +8,17 @@ import {
 } from "@chakra-ui/react";
 import { FaDiscord } from "react-icons/fa";
 import { FormattedMessage } from "react-intl";
-import {useLang} from "../context/langContext";
+import { useLang } from "../context/langContext";
+import Typewriter from "typewriter-effect";
 
 function Header() {
   const { lang } = useLang();
   const { colorMode, toggleColorMode } = useColorMode();
   const textColor = useColorModeValue("black", "white");
+  const desc =
+    lang === "tr-TR"
+      ? "Biz anime kızlarını seven 4 arkadaşız. Beraber oyun oynayıp boş espirilere sabaha kadar güleriz"
+      : "We're 4 friends who love anime girls. We play games together and laugh at stupid jokes.";
 
   return (
     <Box
@@ -33,7 +38,20 @@ function Header() {
         AKFC
       </Text>
       <Box textAlign={"center"}>
-        <FormattedMessage id="desc" />
+        {/* <FormattedMessage id="desc" />  */}
+        <Typewriter
+          options={{
+            autoStart: true,
+            delay: 60,
+            deleteSpeed: 0.05,
+          }}
+          onInit={(typewriter) => {
+            typewriter
+              .typeString(desc)
+              .pauseFor(1000)
+              .start();
+          }}
+        />
       </Box>
       <Button
         color="Black"
