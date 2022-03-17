@@ -8,6 +8,7 @@ import {
   useColorModeValue,
   Tooltip,
   useDisclosure,
+  useBreakpointValue,
   Collapse,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
@@ -23,17 +24,23 @@ function Card({ item }) {
   const bg = useColorModeValue("gray.100", "gray.900");
   const textColor = useColorModeValue("black", "white");
 
+  const draggable = useBreakpointValue({
+    base: "none",
+    lg: "drag",
+  });
+  const tapable = useBreakpointValue({
+    base: "none",
+    lg: { scale: 0.9 },
+  });
+
   return (
     <motion.div
-      drag
-      dragConstraints={{
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-      }}
-      whileTap={{ scale: 0.8 }}
+      dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+      whileTap={tapable}
       dragElastic={0.2}
+      {...(draggable === "drag" && {
+        drag: true,
+      })}
     >
       <Center py={6}>
         <Box
@@ -154,23 +161,23 @@ function Card({ item }) {
                 </Tooltip>
               </Box>
 
-              <Link to={`/${item.link}`}>             
-                  <Button
-                    flex={1}
-                    colorScheme={"teal"}
-                    fontSize={"sm"}
-                    borderRadius="lg"
-                    alignItems={"center"}
-                    width={"full"}
-                    _focus={{
-                      bg: "gray.200",
-                    }}
-                    _hover={{
-                      transform: "translateY(2px)",
-                    }}
-                  >
-                    <FormattedMessage id="card_btn" />
-                  </Button>
+              <Link to={`/${item.link}`}>
+                <Button
+                  flex={1}
+                  colorScheme={"teal"}
+                  fontSize={"sm"}
+                  borderRadius="lg"
+                  alignItems={"center"}
+                  width={"full"}
+                  _focus={{
+                    bg: "gray.200",
+                  }}
+                  _hover={{
+                    transform: "translateY(2px)",
+                  }}
+                >
+                  <FormattedMessage id="card_btn" />
+                </Button>
               </Link>
             </Collapse>
           </Box>

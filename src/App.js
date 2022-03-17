@@ -6,6 +6,7 @@ import { Box, useColorModeValue } from "@chakra-ui/react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Particles from "react-tsparticles";
+import collection from "easter-egg-collection";
 
 //PAGES
 import Home from "./pages/home";
@@ -24,7 +25,7 @@ function App() {
     });
     AOS.refresh();
   }, []);
-
+  console.log("TOP SECRET", collection);
   return (
     <Box bg={bg} minH="100vh">
       <Particles
@@ -384,7 +385,7 @@ function App() {
               },
               random: false,
               size: false,
-              speed: 5,
+              speed: 3,
               spin: {
                 acceleration: 0,
                 enable: false,

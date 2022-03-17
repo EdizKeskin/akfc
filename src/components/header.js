@@ -38,7 +38,6 @@ function Header() {
         AKFC
       </Text>
       <Box textAlign={"center"}>
-        {/* <FormattedMessage id="desc" />  */}
         <Typewriter
           options={{
             autoStart: true,
