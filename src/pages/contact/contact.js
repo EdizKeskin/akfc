@@ -22,6 +22,7 @@ import { FormattedMessage } from "react-intl";
 import { useLang } from "../../context/langContext";
 import emailjs from "emailjs-com";
 import Swal from "sweetalert2";
+import { motion } from "framer-motion";
 
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
@@ -160,7 +161,9 @@ function Contact() {
               />
             </FormControl>
             <FormControl mt={4}>
-              <FormLabel color={textColor}><FormattedMessage id="phone"/></FormLabel>
+              <FormLabel color={textColor}>
+                <FormattedMessage id="phone" />
+              </FormLabel>
               <Flex align={"center"} justifyContent={"space-between"}>
                 <PhoneInput
                   country={"tr"}
@@ -168,12 +171,14 @@ function Contact() {
                   onChange={(phone) => setPhone(phone)}
                   inputClass="phone-input"
                 />
-                <Button
-                  bgColor={btnColor}
-                  onClick={() => setPhone(getRandom().toString())}
-                >
-                  no
-                </Button>
+                <motion.div whileTap={{ scale: 0.8 }}>
+                  <Button
+                    colorScheme={"red"}
+                    onClick={() => setPhone(getRandom().toString())}
+                  >
+                    no
+                  </Button>
+                </motion.div>
               </Flex>
             </FormControl>
 
@@ -193,10 +198,11 @@ function Contact() {
                 resize={"none"}
               />
             </FormControl>
-
-            <Button type="submit" colorScheme="teal" width="full" mt={4}>
-              <FormattedMessage id="formSubmit" />
-            </Button>
+            <motion.div whileTap={{ scale: 0.8 }}>
+              <Button type="submit" colorScheme="teal" width="full" mt={4}>
+                <FormattedMessage id="formSubmit" />
+              </Button>
+            </motion.div>
           </form>
           <Link to="/">
             <Button
