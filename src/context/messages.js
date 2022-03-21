@@ -9,7 +9,7 @@ const Messages = {
     bestSeries: "En sevdiği diziler, filmler, oyunlar vs.",
     series: "Diziler",
     games: "Oyunlar",
-    movie:"Filmler",
+    movie: "Filmler",
     anime: "Animeler",
     home_btn: "Ana Sayfa",
     trap_btn: "Sakın tıklama",
@@ -22,6 +22,7 @@ const Messages = {
     formName: "İsim",
     formSubmit: "Gönder",
     formMessage: "Mesaj",
+    phone: "Bu sizin telefon numaranız mı ?",
   },
   "en-US": {
     desc: "We're 4 friends who love anime girls. We play games together and laugh at stupid jokes.",
@@ -33,7 +34,7 @@ const Messages = {
     bestSeries: "Best series, movies, games etc.",
     series: "Series",
     games: "Games",
-    movie:"Movies",
+    movie: "Movies",
     anime: "Animes",
     home_btn: "Home",
     trap_btn: "Dont touch",
@@ -46,6 +47,7 @@ const Messages = {
     formName: "Name",
     formSubmit: "Submit",
     formMessage: "Message",
+    phone: "Is this your phone number ?",
   },
 };
 

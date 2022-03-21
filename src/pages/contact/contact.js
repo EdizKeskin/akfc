@@ -13,7 +13,7 @@ import {
   useColorMode,
   IconButton,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import validationSchema from "./validations";
 import { IoIosReturnLeft } from "react-icons/io";
@@ -23,8 +23,18 @@ import { useLang } from "../../context/langContext";
 import emailjs from "emailjs-com";
 import Swal from "sweetalert2";
 
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+
 function Contact() {
-  const bg = useColorModeValue("white.100", "gray.700");
+  function getRandom() {
+    return Math.floor(
+      Math.pow(10, 10 - 1) + Math.random() * 9 * Math.pow(10, 10 - 1)
+    );
+  }
+
+  const [phone, setPhone] = useState(getRandom().toString());
+  const bg = useColorModeValue("white.200", "gray.700");
   const textColor = useColorModeValue("black", "white");
   const btnColor = useColorModeValue("white.50", "gray.600");
   const { lang } = useLang();
@@ -74,7 +84,7 @@ function Contact() {
   });
 
   return (
-    <Flex align="center"  justifyContent="center" data-aos="fade-up">
+    <Flex align="center" justifyContent="center" data-aos="fade-up">
       <Box position={"absolute"} top={"5"} left={"5"} mt="3">
         <Link to="/">
           <IconButton icon={<IoIosReturnLeft />} bgColor={btnColor} />
@@ -83,10 +93,11 @@ function Contact() {
 
       <Box
         bgColor={bg}
+        backdropFilter={"blur(2px)"}
         boxShadow="dark-lg"
         p="10"
         mt="100px"
-        boxSize={"lg"}
+        boxSize={"xl"}
         mx="10px"
         borderRadius="lg"
         maxHeight={"fit-content"}
@@ -113,7 +124,7 @@ function Contact() {
 
         <Box my="5" textAlign="left">
           <form onSubmit={formik.handleSubmit}>
-            <FormControl>
+            <FormControl isRequired>
               <FormLabel color={textColor}>
                 <FormattedMessage id="formName" />
               </FormLabel>
@@ -132,7 +143,7 @@ function Contact() {
               />
             </FormControl>
 
-            <FormControl mt={4}>
+            <FormControl mt={4} isRequired>
               <FormLabel color={textColor}>E-Mail</FormLabel>
               <Input
                 name="email"
@@ -148,8 +159,25 @@ function Contact() {
                 }
               />
             </FormControl>
-
             <FormControl mt={4}>
+              <FormLabel color={textColor}><FormattedMessage id="phone"/></FormLabel>
+              <Flex align={"center"} justifyContent={"space-between"}>
+                <PhoneInput
+                  country={"tr"}
+                  value={phone}
+                  onChange={(phone) => setPhone(phone)}
+                  inputClass="phone-input"
+                />
+                <Button
+                  bgColor={btnColor}
+                  onClick={() => setPhone(getRandom().toString())}
+                >
+                  no
+                </Button>
+              </Flex>
+            </FormControl>
+
+            <FormControl mt={4} isRequired>
               <FormLabel color={textColor}>
                 <FormattedMessage id="formMessage" />
               </FormLabel>
