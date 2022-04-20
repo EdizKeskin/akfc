@@ -35,7 +35,7 @@ function Contact() {
   }
 
   const [phone, setPhone] = useState(getRandom().toString());
-  const bg = useColorModeValue("white.200", "gray.700");
+  const bg = useColorModeValue("gray.100", "gray.700");
   const textColor = useColorModeValue("black", "white");
   const btnColor = useColorModeValue("white.50", "gray.600");
   const { lang } = useLang();
